@@ -1,0 +1,78 @@
+@import "../../assets/scss/index.scss";
+
+.footer {
+  padding-top: 2rem;
+
+  &__container {
+    row-gap: 3.5rem;
+  }
+
+  &__bg {
+    background-color: $first-color-second;
+    padding: 2rem 0 3rem;
+  }
+
+  &__title {
+    font-size: $h1-font-size;
+    margin-bottom: $mb-0-25;
+  }
+
+  &__subtitle {
+    font-size: $small-font-size;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+
+  &__link:hover {
+    color: $first-color-lighter;
+  }
+
+  &__social {
+    font-size: 1.25rem;
+    margin-right: $mb-1-5;
+  }
+
+  &__social:hover {
+    color: $first-color-lighter;
+  }
+
+  &__copy {
+    font-size: $small-font-size;
+    text-align: center;
+    color: $text-color-light;
+    margin-top: $mb-3;
+  }
+
+  &__title,
+  &__subtitle,
+  &__link,
+  &__social,
+  &__copy {
+    color: #fff;
+  }
+}
+
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  background-color: $first-color;
+  opacity: 0.8;
+  padding: 0 0.3rem;
+  border-radius: 0.4rem;
+  z-index: $z-tooltip;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $first-color-alt;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+}

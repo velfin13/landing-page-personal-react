@@ -1,0 +1,121 @@
+@import "../../../assets/scss/index.scss";
+
+.skills__container {
+  row-gap: 0;
+}
+
+.skills__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: $mb-2-5;
+  cursor: pointer;
+}
+
+.skills__icon,
+.skills__arrow {
+  font-size: 2rem;
+  color: $first-color;
+}
+
+.skills__arrow {
+  margin-left: auto;
+  transition: 0.4s;
+}
+
+.skills__list {
+  row-gap: 1.5rem;
+  padding-left: 2.5rem;
+  margin-right: 40px;
+}
+
+.skills__icon {
+  margin-right: $mb-1;
+}
+
+.skills__titles {
+  font-size: $h3-font-size;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $mb-0-5;
+}
+
+.skils__subtitle {
+  font-size: $small-font-size;
+  color: $text-color-light;
+}
+
+.skills__names {
+  font-size: $normal-font-size;
+  font-weight: $font-medium;
+}
+
+.skills__bar,
+.skills__percentage {
+  height: 5px;
+  border-radius: 0.25rem;
+}
+
+.skills__bar {
+  background-color: $first-color-lighter;
+}
+
+.skills__percentage {
+  display: block;
+  background-color: $first-color;
+}
+
+.skills__html {
+  width: 100%;
+}
+
+.skills__css {
+  width: 80%;
+}
+
+.skills__react {
+  width: 70%;
+}
+
+.skills__node {
+  width: 70%;
+}
+
+.skills__php {
+  width: 80%;
+}
+
+.skills__laravel7 {
+  width: 70%;
+}
+
+.skills__sql {
+  width: 70%;
+}
+
+.skills__illustrator {
+  width: 60%;
+}
+
+.skills__figma {
+  width: 90%;
+}
+
+.skills__photoshop {
+  width: 80%;
+}
+
+/* to do: terminar el resto de barras */
+
+.skills__close .skills__list {
+  height: 0;
+  overflow: hidden;
+}
+
+.skills__open .skills__list {
+  height: max-content;
+  margin-bottom: $mb-2-5;
+}
+
+.skills__open .skills__arrow {
+  transform: rotate(-180deg);
+}

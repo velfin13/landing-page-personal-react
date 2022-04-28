@@ -1,0 +1,40 @@
+@import "../../../assets/scss/index.scss";
+
+.portfolio__container {
+  overflow: initial;
+}
+
+.portfolio__content {
+  padding: 0 1.5rem;
+}
+
+.portfolio__img {
+  width: 265px;
+  border-radius: 0.5rem;
+  justify-self: center;
+}
+
+.portfolio__title{
+    text-align: center;
+    font-size: $h3-font-size;
+    margin-bottom: $mb-0-5;
+}
+
+.portfolio__description{
+    text-align: center;
+    margin-bottom: $mb-0-75;
+}
+
+.portfolio__button{
+    height: 30px;
+}
+
+.portfolio__button:hover .button__icon{
+    transform: translateX(.25rem);
+}
+
+
+.portfolio__content-button {
+  display: flex;
+  justify-content: space-around;
+}
