@@ -1,9 +1,17 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSocials } from "../../api/user";
+import Socials from "../core/Socials/SocialsFooter";
 import "./Footer.scss";
 
 const Footer = () => {
+  const [socials, setSocials] = useState([]);
+
+  useEffect(() => {
+    getSocials().then((res) => setSocials(res.data.data));
+  }, []);
+
   return (
     <>
       <footer className="footer">
@@ -34,17 +42,7 @@ const Footer = () => {
               </li>
             </ul>
 
-            <div className="footer__socials">
-              <a href="https://www.facebook.com/velfinvelasquez" target="_blank" className="footer__social">
-                <i className="uil uil-facebook"></i>
-              </a>
-              <a href="https://www.instagram.com/velkin13/" target="_blank" className="footer__social">
-                <i className="uil uil-instagram"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/velfin-velasquez/" target="_blank" className="footer__social">
-                <i className="uil uil-linkedin"></i>
-              </a>
-            </div>
+              <Socials socials={socials} />
           </div>
 
           <p className="footer__copy">&#169; Velkin derechos reservados</p>

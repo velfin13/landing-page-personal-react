@@ -1,25 +1,23 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getSocials } from "../../../api/user";
+import SocialsHome from "../../core/Socials/SocialsHome";
 import perfil from "./../../../assets/img/perfil.png";
 import "./Home.scss";
 
 const Home = () => {
+  const [socials, setSocials] = useState([]);
+
+  useEffect(() => {
+    getSocials().then((res) => setSocials(res.data.data));
+  }, []);
+
   return (
     <section className="home section" id="home">
       <div className="div home__container container grid">
         <div className="home__content grid">
-          <div className="home__social">
-            <a href="https://www.linkedin.com/in/velfin-velasquez/" target="_blank" className="home__social-icon">
-              <i className="uil uil-linkedin"></i>
-            </a>
-            <a href="https://github.com/velfin13" target="_blank" className="home__social-icon">
-              <i className="uil uil-github"></i>
-            </a>
-            <a href="https://www.facebook.com/velfinvelasquez" target="_blank" className="home__social-icon">
-              <i className="uil uil-facebook"></i>
-            </a>
-          </div>
+          <SocialsHome socials={socials}/>
 
           <div className="home__img">
             <img className="home__blog" src={perfil} alt="img" />
