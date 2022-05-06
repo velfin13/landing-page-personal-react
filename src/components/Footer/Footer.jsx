@@ -9,7 +9,7 @@ const Footer = () => {
   const [socials, setSocials] = useState([]);
 
   useEffect(() => {
-    getSocials().then((res) => setSocials(res.data.data));
+    getSocials().then((res) => setSocials(res.data));
   }, []);
 
   return (

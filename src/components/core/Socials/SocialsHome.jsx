@@ -6,11 +6,11 @@ const SocialsFooter = ({ socials }) => {
       {socials.map((social) => (
         <a
           key={social.id}
-          href={social.attributes.url}
+          href={social.url}
           target="_blank"
           className="home__social-icon"
         >
-          <i className={social.attributes.icon}></i>
+          <i className={social.icon}></i>
         </a>
       ))}
     </div>
