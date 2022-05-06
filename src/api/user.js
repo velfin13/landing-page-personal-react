@@ -22,3 +22,14 @@ export const getPortafolios = async () => {
     return error;
   }
 };
+
+
+export const getContacts = async () => {
+  try {
+    const url = `${BASE_URL}/contacs`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
