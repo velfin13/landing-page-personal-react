@@ -20,7 +20,7 @@ const Proyectos = ({ portafolios = [] }) => {
                 <img
                   src={
                     portafolio.imagen.formats.large.url
-                      ? portafolio.imagen.formats.large.url
+                      ? portafolio.imagen.formats.small.url
                       : ""
                   }
                   alt="img"
