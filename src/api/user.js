@@ -33,3 +33,14 @@ export const getContacts = async () => {
     return error;
   }
 };
+
+
+export const getHome = async () => {
+  try {
+    const url = `${BASE_URL}/homes`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};

@@ -1,8 +1,6 @@
 import React from "react";
 
 const Contactme = ({ contactos = [] }) => {
-  contactos.map((contact) => console.log(contact));
-
   return (
     <div className="contact__container container grid">
       {contactos.map((contact) => (
