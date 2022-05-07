@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Skills = ({ skill }) => {
+const Skills = ({ skill = {} }) => {
   const [toggle, setToggle] = useState(false);
   const [skills, setskills] = useState([]);
 
