@@ -77,3 +77,14 @@ export const getSkillDesigner= async () => {
     return error;
   }
 };
+
+
+export const getAboutMe= async () => {
+  try {
+    const url = `${BASE_URL}/about-mes`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
