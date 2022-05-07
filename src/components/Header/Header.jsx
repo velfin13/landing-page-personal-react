@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./Header.scss";
-import { Language } from "./Language/Language";
 
 const Header = () => {
   const [collapse, setCollapse] = useState(false);

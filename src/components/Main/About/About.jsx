@@ -1,33 +1,43 @@
-import React from "react";
-import aboutPicture from "../../../assets/img/about.jpg";
+import React, { useEffect, useState } from "react";
+import { getAboutMe } from "../../../api/user";
 import "./About.scss";
 
 const About = () => {
+  const [aboutMe, setAboutMe] = useState({});
+
+  useEffect(() => {
+    getAboutMe().then((res) => setAboutMe(res.data[0] ?? {}));
+  }, []);
+
+  console.log(aboutMe);
+
   return (
     <section className="about section" id="about">
-      <h2 className="section__title">About me</h2>
-      <span className="section__subtitle">My introduction</span>
+      <h2 className="section__title">{aboutMe.title ? aboutMe.title : ""}</h2>
+      <span className="section__subtitle">
+        {aboutMe.subtitle ? aboutMe.subtitle : ""}
+      </span>
 
       <div className="about__container container grid">
-        <img src={aboutPicture} alt="img" className="about__img" />
+        <img src={"aboutPicture"} alt="img" className="about__img" />
 
         <div className="about__data">
           <p className="about__description">
-            I am a web developer, with extensive knowledge and years of
-            experience, working in web technologies and Ui / Ux design
+            {aboutMe.descripcion ? aboutMe.descripcion : ""}
           </p>
 
           <div className="about__info">
             <div>
-              <span className="about__info-title">2+</span>
-              <span className="about__info-name">Years experience</span>
+              <span className="about__info-title">
+                {aboutMe.info1?.title ? aboutMe.info1?.title : ""}
+              </span>
+              <span className="about__info-name">{aboutMe.info1?.subtitle ? aboutMe.info1?.subtitle : ""}</span>
             </div>
 
             <div>
-              <span className="about__info-title">10+</span>
-              <span className="about__info-name">Completed project</span>
+              <span className="about__info-title">{aboutMe.info2?.title ? aboutMe.info2?.title : ""}</span>
+              <span className="about__info-name">{aboutMe.info2?.subtitle ? aboutMe.info2?.subtitle : ""}</span>
             </div>
-
           </div>
 
           {/* <div className="about__buttons">

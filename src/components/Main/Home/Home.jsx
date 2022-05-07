@@ -1,36 +1,44 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getHome, getSocials } from "../../../api/user";
+import SocialsHome from "../../core/Socials/SocialsHome";
 import perfil from "./../../../assets/img/perfil.png";
 import "./Home.scss";
 
 const Home = () => {
+  const [socials, setSocials] = useState([]);
+  const [home, setHome] = useState({});
+
+  useEffect(() => {
+    getSocials().then((res) => setSocials(res.data));
+  }, []);
+
+  useEffect(() => {
+    getHome().then((res) => setHome(res.data[0]));
+  }, []);
+
   return (
     <section className="home section" id="home">
       <div className="div home__container container grid">
         <div className="home__content grid">
-          <div className="home__social">
-            <a href="https://www.linkedin.com/in/velfin-velasquez/" target="_blank" className="home__social-icon">
-              <i className="uil uil-linkedin"></i>
-            </a>
-            <a href="https://github.com/velfin13" target="_blank" className="home__social-icon">
-              <i className="uil uil-github"></i>
-            </a>
-            <a href="https://www.facebook.com/velfinvelasquez" target="_blank" className="home__social-icon">
-              <i className="uil uil-facebook"></i>
-            </a>
-          </div>
+          <SocialsHome socials={socials} />
 
           <div className="home__img">
-            <img className="home__blog" src={perfil} alt="img" />
+            <img
+              className="home__blog"
+              src={home.imagen?.url ? home.imagen?.url : ""}
+              alt="img"
+            />
           </div>
 
           <div className="home__data">
-            <div className="home__title">Hi, I am Velfin</div>
-            <h3 className="home__subtitle">Full Stack developer</h3>
+            <div className="home__title">{home.title ? home.title : ""}</div>
+            <h3 className="home__subtitle">
+              {home.subtitle ? home.subtitle : ""}
+            </h3>
             <p className="home__description">
-              High level experience in web design and development knowledge,
-              producing quality work.
+              {home.description ? home.description : ""}
             </p>
             <a href="#contact" className="button button--flex">
               Contact me <i className="uil uil-message button__icon"></i>
