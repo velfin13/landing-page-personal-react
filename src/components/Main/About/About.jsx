@@ -19,7 +19,11 @@ const About = () => {
       </span>
 
       <div className="about__container container grid">
-        <img src={"aboutPicture"} alt="img" className="about__img" />
+        <img
+          src={aboutMe.imagen?.url ? aboutMe.imagen?.url : ""}
+          alt="img"
+          className="about__img"
+        />
 
         <div className="about__data">
           <p className="about__description">
@@ -31,12 +35,18 @@ const About = () => {
               <span className="about__info-title">
                 {aboutMe.info1?.title ? aboutMe.info1?.title : ""}
               </span>
-              <span className="about__info-name">{aboutMe.info1?.subtitle ? aboutMe.info1?.subtitle : ""}</span>
+              <span className="about__info-name">
+                {aboutMe.info1?.subtitle ? aboutMe.info1?.subtitle : ""}
+              </span>
             </div>
 
             <div>
-              <span className="about__info-title">{aboutMe.info2?.title ? aboutMe.info2?.title : ""}</span>
-              <span className="about__info-name">{aboutMe.info2?.subtitle ? aboutMe.info2?.subtitle : ""}</span>
+              <span className="about__info-title">
+                {aboutMe.info2?.title ? aboutMe.info2?.title : ""}
+              </span>
+              <span className="about__info-name">
+                {aboutMe.info2?.subtitle ? aboutMe.info2?.subtitle : ""}
+              </span>
             </div>
           </div>
 
