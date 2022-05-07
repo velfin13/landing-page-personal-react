@@ -18,8 +18,6 @@ const Home = () => {
     getHome().then((res) => setHome(res.data[0]));
   }, []);
 
-  console.log();
-
   return (
     <section className="home section" id="home">
       <div className="div home__container container grid">

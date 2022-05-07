@@ -44,3 +44,36 @@ export const getHome = async () => {
     return error;
   }
 };
+
+
+export const getSkillFrondEnd= async () => {
+  try {
+    const url = `${BASE_URL}/skill-fronds`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+export const getSkillBackEnd= async () => {
+  try {
+    const url = `${BASE_URL}/skill-backends`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+export const getSkillDesigner= async () => {
+  try {
+    const url = `${BASE_URL}/skill-designers`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
