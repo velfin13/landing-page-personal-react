@@ -13,15 +13,15 @@ const Skills = () => {
   const [skillDesign, setSkillDesign] = useState({});
 
   useEffect(() => {
-    getSkillFrondEnd().then((res) => setSkillFrondEnd(res.data[0]));
+    getSkillFrondEnd().then((res) => setSkillFrondEnd(res.data[0] ?? {}));
   }, []);
 
   useEffect(() => {
-    getSkillBackEnd().then((res) => setSkillBackEnd(res.data[0]));
+    getSkillBackEnd().then((res) => setSkillBackEnd(res.data[0] ?? {}));
   }, []);
 
   useEffect(() => {
-    getSkillDesigner().then((res) => setSkillDesign(res.data[0]));
+    getSkillDesigner().then((res) => setSkillDesign(res.data[0] ?? {}));
   }, []);
 
   return (

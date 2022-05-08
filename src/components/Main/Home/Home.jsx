@@ -3,20 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { getHome, getSocials } from "../../../api/user";
 import SocialsHome from "../../core/Socials/SocialsHome";
-import perfil from "./../../../assets/img/perfil.png";
 import "./Home.scss";
 
-const Home = () => {
+const Home = ({ lng }) => {
   const [socials, setSocials] = useState([]);
   const [home, setHome] = useState({});
 
   useEffect(() => {
-    getSocials().then((res) => setSocials(res.data ?? []));
-  }, []);
+    getSocials(lng).then((res) => setSocials(res.data ?? []));
+  }, [lng]);
 
   useEffect(() => {
-    getHome().then((res) => setHome(res.data[0] ?? []));
-  }, []);
+    getHome(lng).then((res) => setHome(res.data[0] ?? []));
+  }, [lng]);
 
   return (
     <section className="home section" id="home">

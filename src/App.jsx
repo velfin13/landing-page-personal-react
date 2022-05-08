@@ -5,21 +5,32 @@ import Skills from "./components/Main/Skills/Skills";
 import Portfolio from "./components/Main/Portfolio";
 import Contactme from "./components/Main/Contactme";
 import Footer from "./components/Footer";
-
+import { useEffect, useState } from "react";
 
 function App() {
+  const [language, setLanguage] = useState(
+    localStorage.getItem("idioma") ?? "en"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("idioma", language ?? "en");
+  }, []);
+
+  useEffect(() => {
+    setLanguage('es')
+  }, [])
+
   return (
     <>
       <Header />
       <main className="main">
-        <Home />
+        <Home lng={language} />
         <About />
         <Skills />
         <Portfolio />
         <Contactme />
       </main>
       <Footer />
-      
     </>
   );
 }
