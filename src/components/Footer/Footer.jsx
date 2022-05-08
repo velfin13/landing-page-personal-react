@@ -29,7 +29,7 @@ const Footer = ({ lng }) => {
 
             <ul className="footer__links">
               {footerLinks.map((footerLinksState) => (
-                <li>
+                <li key={footerLinksState.id}>
                   <a
                     href={footerLinksState.url ? footerLinksState.url : ""}
                     className="footer__link"
