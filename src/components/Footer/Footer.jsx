@@ -1,16 +1,21 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { getSocials } from "../../api/user";
+import { getSocials, getNavBar } from "../../api/user";
 import Socials from "../core/Socials/SocialsFooter";
 import "./Footer.scss";
 
-const Footer = () => {
+const Footer = ({ lng }) => {
   const [socials, setSocials] = useState([]);
+  const [footerLinks, setFooterLinks] = useState([]);
 
   useEffect(() => {
     getSocials().then((res) => setSocials(res.data));
   }, []);
+
+  useEffect(() => {
+    getNavBar(lng).then((res) => setFooterLinks(res.data ?? []));
+  }, [lng]);
 
   return (
     <>
@@ -23,26 +28,19 @@ const Footer = () => {
             </div>
 
             <ul className="footer__links">
-              <li>
-                <a href="#home" className="footer__link">
-                  Home
-                </a>
-              </li>
-
-              <li>
-                <a href="#portfolio" className="footer__link">
-                  Portfolio
-                </a>
-              </li>
-
-              <li>
-                <a href="#contact" className="footer__link">
-                  Contact
-                </a>
-              </li>
+              {footerLinks.map((footerLinksState) => (
+                <li>
+                  <a
+                    href={footerLinksState.url ? footerLinksState.url : ""}
+                    className="footer__link"
+                  >
+                    {footerLinksState.label ? footerLinksState.label : ""}
+                  </a>
+                </li>
+              ))}
             </ul>
 
-              <Socials socials={socials} />
+            <Socials socials={socials} />
           </div>
 
           <p className="footer__copy">&#169; Velkin derechos reservados</p>

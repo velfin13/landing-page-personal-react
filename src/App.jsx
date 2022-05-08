@@ -27,7 +27,7 @@ function App() {
         <Portfolio lng={language}/>
         <Contactme lng={language}/>
       </main>
-      <Footer />
+      <Footer lng={language}/>
     </>
   );
 }

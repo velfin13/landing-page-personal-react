@@ -26,7 +26,7 @@ const Header = ({ lng }) => {
         <div className={collapse ? "nav__menu show-menu" : "nav__menu"}>
           <ul className="nav__list grid">
             {navBar.map((navBarState) => (
-              <li className="nav__item">
+              <li className="nav__item" key={navBar.id}>
                 <a
                   href={navBarState.url ? navBarState.url : ""}
                   className="nav__link"
