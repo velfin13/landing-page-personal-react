@@ -25,10 +25,10 @@ function App() {
       <Header />
       <main className="main">
         <Home lng={language} />
-        <About />
-        <Skills />
-        <Portfolio />
-        <Contactme />
+        <About lng={language}/>
+        <Skills lng={language}/>
+        <Portfolio lng={language}/>
+        <Contactme lng={language}/>
       </main>
       <Footer />
     </>

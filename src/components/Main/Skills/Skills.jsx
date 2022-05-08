@@ -7,22 +7,22 @@ import {
 } from "../../../api/user";
 import "./Skills.scss";
 
-const Skills = () => {
+const Skills = ({lng}) => {
   const [skillFrondEnd, setSkillFrondEnd] = useState({});
   const [skillBackEnd, setSkillBackEnd] = useState({});
   const [skillDesign, setSkillDesign] = useState({});
 
   useEffect(() => {
-    getSkillFrondEnd().then((res) => setSkillFrondEnd(res.data[0] ?? {}));
-  }, []);
+    getSkillFrondEnd(lng).then((res) => setSkillFrondEnd(res.data[0] ?? {}));
+  }, [lng]);
 
   useEffect(() => {
-    getSkillBackEnd().then((res) => setSkillBackEnd(res.data[0] ?? {}));
-  }, []);
+    getSkillBackEnd(lng).then((res) => setSkillBackEnd(res.data[0] ?? {}));
+  }, [lng]);
 
   useEffect(() => {
-    getSkillDesigner().then((res) => setSkillDesign(res.data[0] ?? {}));
-  }, []);
+    getSkillDesigner(lng).then((res) => setSkillDesign(res.data[0] ?? {}));
+  }, [lng]);
 
   return (
     <section className="skills section" id="skills">

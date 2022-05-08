@@ -5,12 +5,12 @@ import { getContacts } from "../../../api/user";
 
 import "./Contactme.scss";
 
-const Contactme = () => {
+const Contactme = ({lng}) => {
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    getContacts().then((res) => setContacts(res.data));
-  }, []);
+    getContacts(lng).then((res) => setContacts(res.data));
+  }, [lng]);
 
   return (
     <section className="contact section" id="contact">

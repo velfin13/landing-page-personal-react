@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getAboutMe } from "../../../api/user";
 import "./About.scss";
 
-const About = () => {
+const About = ({lng}) => {
   const [aboutMe, setAboutMe] = useState({});
 
   useEffect(() => {
-    getAboutMe().then((res) => setAboutMe(res.data[0] ?? {}));
-  }, []);
+    getAboutMe(lng).then((res) => setAboutMe(res.data[0] ?? {}));
+  }, [lng]);
 
 
   return (

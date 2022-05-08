@@ -5,12 +5,12 @@ import "./Portfolio.scss";
 import Proyectos from "./Proyectos";
 import { getPortafolios } from "../../../api/user";
 
-const Portfolio = () => {
+const Portfolio = ({lng}) => {
   const [portafolios, setPortafolios] = useState([]);
 
   useEffect(() => {
-    getPortafolios().then((res) => setPortafolios(res.data ?? []));
-  }, []);
+    getPortafolios(lng).then((res) => setPortafolios(res.data ?? []));
+  }, [lng]);
 
   return (
     <section className="portfolio section" id="portfolio">
