@@ -13,6 +13,18 @@ export const getSocials = async () => {
 };
 
 
+export const getNavBar = async (lang='en') => {
+  try {
+    const url = `${BASE_URL}/navs?_locale=${lang}`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+
 export const getPortafolios = async (lang='en') => {
   try {
     const url = `${BASE_URL}/portfolios?_locale=${lang}`;

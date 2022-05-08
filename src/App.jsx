@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header lng={language}/>
       <main className="main">
         <Home lng={language} />
         <About lng={language}/>
