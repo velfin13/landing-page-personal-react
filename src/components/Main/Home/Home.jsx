@@ -40,7 +40,8 @@ const Home = ({ lng }) => {
               {home.description ? home.description : ""}
             </p>
             <a href="#contact" className="button button--flex">
-              Contact me <i className="uil uil-message button__icon"></i>
+              {home.boton1 ? home.boton1 : ""}{" "}
+              <i className="uil uil-message button__icon"></i>
             </a>
           </div>
         </div>
@@ -48,7 +49,7 @@ const Home = ({ lng }) => {
         <div className="home__scroll">
           <a href="#about" className="home__scroll-button button--flex">
             <i className="uil uil-mouse-alt home__scroll-mouse"></i>
-            <span className="home__scroll-name">Scroll down</span>
+            <span className="home__scroll-name">{home.boton2 ? home.boton2 : ""}</span>
             <i className="uil uil-arrow-down home__scroll-arrow"></i>
           </a>
         </div>
