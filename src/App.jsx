@@ -14,11 +14,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("idioma", language ?? "en");
-  }, []);
+  }, [language]);
 
-  useEffect(() => {
-    setLanguage('es')
-  }, [])
 
   return (
     <>
