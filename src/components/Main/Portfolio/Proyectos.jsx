@@ -19,8 +19,8 @@ const Proyectos = ({ portafolios = [] }) => {
               <div className="portfolio__content grid">
                 <img
                   src={
-                    portafolio.imagen.formats.large.url
-                      ? portafolio.imagen.formats.small.url
+                    portafolio.imagen?.formats.large.url
+                      ? portafolio.imagen?.formats.small.url
                       : ""
                   }
                   alt="img"

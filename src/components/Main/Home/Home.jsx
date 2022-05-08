@@ -11,11 +11,11 @@ const Home = () => {
   const [home, setHome] = useState({});
 
   useEffect(() => {
-    getSocials().then((res) => setSocials(res.data));
+    getSocials().then((res) => setSocials(res.data ?? []));
   }, []);
 
   useEffect(() => {
-    getHome().then((res) => setHome(res.data[0]));
+    getHome().then((res) => setHome(res.data[0] ?? []));
   }, []);
 
   return (

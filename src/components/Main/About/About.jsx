@@ -9,7 +9,6 @@ const About = () => {
     getAboutMe().then((res) => setAboutMe(res.data[0] ?? {}));
   }, []);
 
-  console.log(aboutMe);
 
   return (
     <section className="about section" id="about">

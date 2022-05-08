@@ -9,7 +9,7 @@ const Portfolio = () => {
   const [portafolios, setPortafolios] = useState([]);
 
   useEffect(() => {
-    getPortafolios().then((res) => setPortafolios(res.data));
+    getPortafolios().then((res) => setPortafolios(res.data ?? []));
   }, []);
 
   return (
@@ -17,7 +17,7 @@ const Portfolio = () => {
       <h2 className="section__title">Portfolio</h2>
       <span className="section__subtitle">Most recent work</span>
       <div className="portfolio__container container">
-        <Proyectos portafolios={portafolios}/>
+        <Proyectos portafolios={portafolios} />
       </div>
     </section>
   );
