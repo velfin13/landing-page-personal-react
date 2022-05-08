@@ -100,3 +100,36 @@ export const getAboutMe= async (lang='en') => {
     return error;
   }
 };
+
+
+export const getPortafolioHeader= async (lang='en') => {
+  try {
+    const url = `${BASE_URL}/portfolio-headers?_locale=${lang}`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+export const getContactHeader= async (lang='en') => {
+  try {
+    const url = `${BASE_URL}/contac-headers?_locale=${lang}`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};
+
+
+export const getSkillHeader= async (lang='en') => {
+  try {
+    const url = `${BASE_URL}/skill-headers?_locale=${lang}`;
+    const resul = await axios.get(url);
+    return resul;
+  } catch (error) {
+    return error;
+  }
+};

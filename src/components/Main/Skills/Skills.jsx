@@ -4,13 +4,15 @@ import {
   getSkillBackEnd,
   getSkillDesigner,
   getSkillFrondEnd,
+  getSkillHeader,
 } from "../../../api/user";
 import "./Skills.scss";
 
-const Skills = ({lng}) => {
+const Skills = ({ lng }) => {
   const [skillFrondEnd, setSkillFrondEnd] = useState({});
   const [skillBackEnd, setSkillBackEnd] = useState({});
   const [skillDesign, setSkillDesign] = useState({});
+  const [skillHeader, setSkillHeader] = useState({});
 
   useEffect(() => {
     getSkillFrondEnd(lng).then((res) => setSkillFrondEnd(res.data[0] ?? {}));
@@ -24,10 +26,16 @@ const Skills = ({lng}) => {
     getSkillDesigner(lng).then((res) => setSkillDesign(res.data[0] ?? {}));
   }, [lng]);
 
+  useEffect(() => {
+    getSkillHeader(lng).then((res) => setSkillHeader(res.data[0] ?? {}));
+  }, [lng]);
+
   return (
     <section className="skills section" id="skills">
-      <h2 className="section__title">Skills</h2>
-      <span className="section__subtitle">My technical level</span>
+      <h2 className="section__title">
+        {skillHeader.title ? skillHeader.title : ""}
+      </h2>
+      <span className="section__subtitle">{skillHeader.subtitle ? skillHeader.subtitle : ""}</span>
 
       <div className="skills__container container grid">
         <div>

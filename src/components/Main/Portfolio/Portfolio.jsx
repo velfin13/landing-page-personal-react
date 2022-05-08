@@ -3,19 +3,28 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.scss";
 import Proyectos from "./Proyectos";
-import { getPortafolios } from "../../../api/user";
+import { getPortafolios, getPortafolioHeader } from "../../../api/user";
 
-const Portfolio = ({lng}) => {
+const Portfolio = ({ lng }) => {
   const [portafolios, setPortafolios] = useState([]);
+  const [portafolioHeader, setPortafolioHeader] = useState({});
 
   useEffect(() => {
     getPortafolios(lng).then((res) => setPortafolios(res.data ?? []));
   }, [lng]);
 
+  useEffect(() => {
+    getPortafolioHeader(lng).then((res) => setPortafolioHeader(res.data[0] ?? {}));
+  }, [lng]);
+
   return (
     <section className="portfolio section" id="portfolio">
-      <h2 className="section__title">Portfolio</h2>
-      <span className="section__subtitle">Most recent work</span>
+      <h2 className="section__title">
+        {portafolioHeader.title ? portafolioHeader.title : ""}
+      </h2>
+      <span className="section__subtitle">
+        {portafolioHeader.subtitle ? portafolioHeader.subtitle : ""}
+      </span>
       <div className="portfolio__container container">
         <Proyectos portafolios={portafolios} />
       </div>
