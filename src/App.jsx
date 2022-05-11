@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Header lng={language}/>
+      <Header lng={language} setLanguage={setLanguage}/>
       <main className="main">
         <Home lng={language} />
         <About lng={language}/>

@@ -3,7 +3,7 @@ import { getNavBar } from "../../api/user";
 
 import "./Header.scss";
 
-const Header = ({ lng }) => {
+const Header = ({ lng, setLanguage }) => {
   const [collapse, setCollapse] = useState(false);
   const [navBar, setNavBar] = useState([]);
 
@@ -14,6 +14,11 @@ const Header = ({ lng }) => {
   /* boton collapzar */
   const handleCollapse = () => {
     setCollapse(!collapse);
+  };
+
+  /* Boton cambiar idioma */
+  const handleChangeLng = (e) => {
+    setLanguage(e.target.value);
   };
 
   return (
@@ -31,10 +36,25 @@ const Header = ({ lng }) => {
                   href={navBarState.url ? navBarState.url : ""}
                   className="nav__link"
                 >
-                  <i className={`${navBarState.icon} nav__icon`}></i> {navBarState.label ? navBarState.label : ""}
+                  <i className={`${navBarState.icon} nav__icon`}></i>{" "}
+                  {navBarState.label ? navBarState.label : ""}
                 </a>
               </li>
             ))}
+
+            <li className="nav__item">
+              <center>
+                <select
+                  name="lenguage"
+                  value={lng}
+                  onChange={handleChangeLng}
+                  className="change__lenguage"
+                >
+                  <option value="es">Spanish</option>
+                  <option value="en">English</option>
+                </select>
+              </center>
+            </li>
           </ul>
 
           <i className="uil uil-times nav__close" onClick={handleCollapse}></i>
