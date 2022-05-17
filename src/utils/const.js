@@ -1,1 +1,1 @@
-export const BASE_URL = "https://backend-web-velfin-production.up.railway.app";
+export const BASE_URL = "https://web-velfin.herokuapp.com";
